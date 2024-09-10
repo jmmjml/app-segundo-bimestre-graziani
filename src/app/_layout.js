@@ -1,7 +1,7 @@
-import { Stack } from "expo-router";
-import { AppProvider } from "../hooks";
+import { Slot, Stack } from "expo-router";
+import { AppProvider } from "../hooks/index";
 
-export default function layout({ children }) {
+export default function Layout() {
   return (
     <AppProvider>
       <Stack />

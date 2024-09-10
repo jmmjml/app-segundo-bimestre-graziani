@@ -1,6 +1,6 @@
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import { ActivityIndicator, Text, View } from "react-native";
 
 const FontContext = createContext({});
