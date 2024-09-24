@@ -38,7 +38,7 @@ export function AuthProvider({ children }) {
     setUser({
       autenticated: false,
       user: null,
-      role:null,
+      role: null,
     });
   }
 };
