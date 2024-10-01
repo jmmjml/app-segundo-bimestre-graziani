@@ -10,13 +10,24 @@ const StackLayout = () => {
   useEffect(() => {
     const inAuthGroup = segments[0] === "(protected)";
 
-    if (!user?.autenticated && inAuthGroup) {
-      router.replace("./");
-    } else {
-      if (user?.autenticated) {
-        router.replace("/(protected)");
+    
+    if(user?.autenticated == true){
+      router.push("(protected)");
+    }else{
+      if(router.canGoBack()){
+        router.back();
+      } else{
+        router.replace("/");
       }
     }
+
+    // if (!user?.autenticated && inAuthGroup) {
+    //   router.replace("./");
+    // } else {
+    //   if (user?.autenticated) {
+    //     router.replace("/(protected)");
+    //   }
+    // }
   }, [user]);
 
   return (
