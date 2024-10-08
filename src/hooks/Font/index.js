@@ -1,10 +1,8 @@
 import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
 import { createContext, useContext } from "react";
 import { ActivityIndicator, Text, View } from "react-native";
 
 const FontContext = createContext({});
-SplashScreen.preventAutoHideAsync();
 
 export function FontProvider({ children }) {
   const [loaded, error] = useFonts({
@@ -30,12 +28,16 @@ export function FontProvider({ children }) {
   if (!loaded && !error) {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text style={{fontSize:28, marginTop: 15}}>Carregando as fontes...</Text>
+        <Text style={{ fontSize: 28, marginTop: 15 }}>
+          Carregando as fontes...
+        </Text>
         <ActivityIndicator size="large" color="#00ff00" />
       </View>
     );
   }
-  return <FontContext.Provider value={{loaded}}>{children}</FontContext.Provider>;
+  return (
+    <FontContext.Provider value={{ loaded }}>{children}</FontContext.Provider>
+  );
 }
 
 export function useFont() {

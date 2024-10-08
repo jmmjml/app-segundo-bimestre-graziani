@@ -11,7 +11,7 @@ export const Role = {
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState({
-    autenticated: null,
+    autenticated: false,
     user: null,
     role: null,
   });
@@ -36,7 +36,11 @@ export function AuthProvider({ children }) {
 };
 
   const signOut = async () => {
-    setUser({});
+    setUser({
+      autenticated: false,
+      user: null,
+      role: null,
+    });
   };
 
   useEffect(() => {
